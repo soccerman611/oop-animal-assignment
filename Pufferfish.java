@@ -1,7 +1,7 @@
-public class Shark extends Water {
+public class Pufferfish extends Water {
 
     public String Desc(){
-        return "Follow the green, not the dream.";
+        return "Pufferfish eat carrot";
     }
 
     public int specialmove(){

@@ -1,3 +1,5 @@
+this is for reference
+
 1: Quick Thinking (moves first in the environment the animal benefits in)
 2: Special Boost (your special move is more effective)
 3: Another Chance (one extra round per battle)

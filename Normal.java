@@ -1,4 +1,4 @@
-public class Water extends Animal {
+public class Normal extends Animal {
 
     // if you put method from iturnmodifier here and not in animal it will not be a problem (note)
 

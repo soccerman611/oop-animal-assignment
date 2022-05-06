@@ -1,3 +1,7 @@
-public class Animal {
+abstract class Animal {
+
+    public String Desc(){
+        return "Description";
+    }
     
 }
