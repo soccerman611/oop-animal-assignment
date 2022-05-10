@@ -1,12 +1,7 @@
-public interface iTurnModifier{
+abstract class iTurnModifier{
 
-    public int EnvTurnChange();
+    public void calculate(){
+        System.out.println("a");
 
-    public int EnvATKChange();
-
-    public int AtrTurnChange();
-
-    public int AtrATKChange();
-
-    public int GuardChange();
+    }
 }

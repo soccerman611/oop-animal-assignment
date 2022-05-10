@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         int MainInput = 0; //Input will be asked from the player a lot during this
         int Gamemode = 0; //1 is main mode, 3 is freeplay
-        int DifficultySelect; //1 is easy, 2 is normal, 3 is hard
+        int DifficultySelect = 0; //1 is easy, 2 is normal, 3 is hard
         int Inputisvalid = 0;
         int freeplaycounter = 0;
         int AttributeChoose = 0;
@@ -71,16 +71,66 @@ public class Main {
                 ChooseAnAnimal(MainInput, freeplaycounter, AttributeChoose);
                 freeplaycounter = 1;   
                 Inputisvalid = 0; 
-            }
-
-            
+            }   
         }
+
+        if (Gamemode == 1){
+            System.out.println("not freeplay");
+
+            while (Inputisvalid < 3){
+                if (Inputisvalid == 0){
+                    Scanner sin = new Scanner(System.in);
+                    System.out.println("What animal do you want? 1 for Tiger, 2 for Wolf, 3 for Spider, 4 for Vulture, 5 for Shark, 6 for Pufferfish");
+                    MainInput = sin.nextInt();
+                    if (MainInput < 1 || MainInput > 6){
+                        System.out.println("Why");
+                        continue;
+                    }
+                    Inputisvalid++;
+
+
+                }
+
+                if (Inputisvalid == 1){
+                    Scanner sin = new Scanner(System.in);
+                    System.out.println("What attribute do you want? 1 for Quick Thinking, 2 for Special Boost, 3 for Another Chance, 4 for Thorns, 5 for Environment Boost");
+                    System.out.println("6 for Double Vision, 7 for Tough Spot, 8 for Iron Armor, 9 for Neutral Response");
+                    AttributeChoose = sin.nextInt();
+
+                    if (AttributeChoose < 1 || AttributeChoose > 9){
+                        System.out.println("Why");
+                        continue;
+                    }
+                    Inputisvalid++;
+
+
+
+                }
+
+                Scanner sin = new Scanner(System.in);
+                System.out.println("What difficulty? 1 for Easy, 2 for Normal, 3 for Hard");
+                DifficultySelect = sin.nextInt();
+                if (DifficultySelect < 1 || DifficultySelect > 3){
+                    System.out.println("Why");
+                    continue;
+                }
+                Inputisvalid = 10;
+
+            }
+            ChooseAnAnimal(MainInput, AttributeChoose, freeplaycounter);
+            Inputisvalid = 0;
+
+
+        }
+
+        System.out.println("a");
    
         
     }
 
     public static void ChooseAnAnimal(int freeplaycounter, int MainInput, int AttributeChoose){
-        System.out.println("Among Us");
+        
+
 
     }
 
