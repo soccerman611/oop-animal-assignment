@@ -1,4 +1,4 @@
-abstract class Animal {
+public class Animal extends iTurnModifier{
 
     public String Desc(){
         return "Description";

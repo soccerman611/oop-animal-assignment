@@ -5,5 +5,7 @@ public class Flying extends Animal {
     public int specialmove(){
         return -1;
     }
+
+    
     
 }

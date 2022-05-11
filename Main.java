@@ -15,6 +15,9 @@ public class Main {
         int Inputisvalid = 0;
         int freeplaycounter = 0;
         int AttributeChoose = 0;
+        Animal user = new Animal();
+        Animal user2 = new Animal();
+        
 
         while (Inputisvalid == 0){
             Scanner sin = new Scanner(System.in);
@@ -57,18 +60,18 @@ public class Main {
 
                 while (Inputisvalid == 0){
                     Scanner sin = new Scanner(System.in);
-                    System.out.println("What attribute do you want? 1 for Quick Thinking, 2 for Special Boost, 3 for Another Chance, 4 for Thorns, 5 for Environment Boost");
-                    System.out.println("6 for Double Vision, 7 for Tough Spot, 8 for Iron Armor, 9 for Neutral Response");
+                    System.out.println("What attribute do you want? 0 for Quick Thinking, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
+                    System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response");
                     AttributeChoose = sin.nextInt();
 
-                    if (AttributeChoose < 1 || AttributeChoose > 9){
+                    if (AttributeChoose < 0 || AttributeChoose > 8){
                         System.out.println("why");
                         continue;
                     }
                     Inputisvalid++;
              
                 }
-                ChooseAnAnimal(MainInput, freeplaycounter, AttributeChoose);
+                ChooseAnAnimal(MainInput, freeplaycounter, AttributeChoose, user, user2);
                 freeplaycounter = 1;   
                 Inputisvalid = 0; 
             }   
@@ -93,11 +96,11 @@ public class Main {
 
                 if (Inputisvalid == 1){
                     Scanner sin = new Scanner(System.in);
-                    System.out.println("What attribute do you want? 1 for Quick Thinking, 2 for Special Boost, 3 for Another Chance, 4 for Thorns, 5 for Environment Boost");
-                    System.out.println("6 for Double Vision, 7 for Tough Spot, 8 for Iron Armor, 9 for Neutral Response");
+                    System.out.println("What attribute do you want? 0 for Quick Thinking, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
+                    System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response");
                     AttributeChoose = sin.nextInt();
 
-                    if (AttributeChoose < 1 || AttributeChoose > 9){
+                    if (AttributeChoose < 0 || AttributeChoose > 8){
                         System.out.println("Why");
                         continue;
                     }
@@ -117,18 +120,62 @@ public class Main {
                 Inputisvalid = 10;
 
             }
-            ChooseAnAnimal(MainInput, AttributeChoose, freeplaycounter);
+            ChooseAnAnimal(MainInput, AttributeChoose, freeplaycounter, user, user2);
             Inputisvalid = 0;
 
 
         }
 
-        System.out.println("a");
+        Pufferfish amongus = new Pufferfish();
+        System.out.println(amongus.Desc());
+
+        int score = 0;
+        int RandomEnv = 0;
+        RandomEnv = (int)(Math.random()*3) + 1;
+
+        int num = 6;
+
+        
+
+       
+        score = amongus.calculate();
+        System.out.println(score);
+        
+        
+        
+
    
         
     }
 
-    public static void ChooseAnAnimal(int freeplaycounter, int MainInput, int AttributeChoose){
+    public static void ChooseAnAnimal(int freeplaycounter, int MainInput, int AttributeChoose, Animal user, Animal user2){
+
+        if (freeplaycounter == 0){
+            AttributeList javamoment = new AttributeList();
+            String KnownAttribute = javamoment.Attributes(AttributeChoose);
+            
+            
+
+            switch(MainInput){
+
+                case 1: user = new Tiger();
+                case 2: user = new Wolf();
+                case 3: user = new Spider();
+                case 4: user = new Vulture();
+                case 5: user = new Shark();
+                case 6: user = new Pufferfish();
+            }
+
+            
+
+            
+
+        }
+
+        
+
+
+        
         
 
 
