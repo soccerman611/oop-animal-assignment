@@ -7,16 +7,23 @@ Desc: animal competition yes
 import java.util.*;
 
 public class Main {
+    static Animal user = new Animal();
+    static Animal user2 = new Animal();
+    static String KnownAttribute;
+    static String KnownAttribute2;
+
 
     public static void main(String[] args) {
         int MainInput = 0; //Input will be asked from the player a lot during this
         int Gamemode = 0; //1 is main mode, 3 is freeplay
         int DifficultySelect = 0; //1 is easy, 2 is normal, 3 is hard
         int Inputisvalid = 0;
-        int freeplaycounter = 0;
+        int freeplaycounter = 1;
         int AttributeChoose = 0;
-        Animal user = new Animal();
-        Animal user2 = new Animal();
+        
+        
+        
+        
         
 
         while (Inputisvalid == 0){
@@ -42,7 +49,6 @@ public class Main {
         MainInput = 0;
 
         if (Gamemode == 2){ //freeplay animal select
-            System.out.println("Fortnite");
 
             for (int i = 0; i < 2; i++){
                 while (Inputisvalid == 0){
@@ -71,8 +77,8 @@ public class Main {
                     Inputisvalid++;
              
                 }
-                ChooseAnAnimal(MainInput, freeplaycounter, AttributeChoose, user, user2);
-                freeplaycounter = 1;   
+                ChooseAnAnimal(MainInput, freeplaycounter, AttributeChoose);
+                freeplaycounter++;   
                 Inputisvalid = 0; 
             }   
         }
@@ -90,6 +96,7 @@ public class Main {
                         continue;
                     }
                     Inputisvalid++;
+                    ChooseAnAnimal(MainInput, freeplaycounter, AttributeChoose);
 
 
                 }
@@ -120,14 +127,12 @@ public class Main {
                 Inputisvalid = 10;
 
             }
-            ChooseAnAnimal(MainInput, AttributeChoose, freeplaycounter, user, user2);
+            ChooseAnAnimal(MainInput, AttributeChoose, freeplaycounter);
             Inputisvalid = 0;
-
-
         }
 
-        Pufferfish amongus = new Pufferfish();
-        System.out.println(amongus.Desc());
+        /*Pufferfish amongus = new Pufferfish();
+        System.out.println(amongus.Desc());*/
 
         int score = 0;
         int RandomEnv = 0;
@@ -137,9 +142,19 @@ public class Main {
 
         
 
+        
+
        
-        score = amongus.calculate();
-        System.out.println(score);
+        /*score = amongus.calculate();
+        System.out.println(score);*/
+
+        System.out.println(user.Desc());
+        System.out.println(KnownAttribute);
+        System.out.println(user2.Desc());
+        System.out.println(KnownAttribute2);
+
+        System.out.println("Welcome to the fight !");
+        System.out.println("Today the " + user +  " and the " + user2 + " fight!");
         
         
         
@@ -148,27 +163,66 @@ public class Main {
         
     }
 
-    public static void ChooseAnAnimal(int freeplaycounter, int MainInput, int AttributeChoose, Animal user, Animal user2){
+    //Animal user, Animal user2
 
-        if (freeplaycounter == 0){
+    public static void ChooseAnAnimal(int freeplaycounter, int MainInput, int AttributeChoose){
+
+
+        if (freeplaycounter == 1){ //set user's animal
             AttributeList javamoment = new AttributeList();
-            String KnownAttribute = javamoment.Attributes(AttributeChoose);
-            
-            
+            KnownAttribute = javamoment.Attributes(AttributeChoose);
 
             switch(MainInput){
 
-                case 1: user = new Tiger();
-                case 2: user = new Wolf();
-                case 3: user = new Spider();
-                case 4: user = new Vulture();
-                case 5: user = new Shark();
-                case 6: user = new Pufferfish();
+                case 1: 
+                user = new Tiger();
+                break;
+                case 2: 
+                user = new Wolf();
+                break;
+                case 3:
+                user = new Spider();
+                break;
+                case 4:
+                user = new Vulture();
+                break;
+                case 5:
+                user = new Shark();
+                break;
+                case 6:
+                user = new Pufferfish();
+                break;
             }
 
-            
 
-            
+        }
+        if (freeplaycounter > 1){
+            AttributeList javamoment2 = new AttributeList();
+            KnownAttribute2 = javamoment2.Attributes(AttributeChoose);
+
+            switch(MainInput){
+
+                case 1:
+                user2 = new Tiger();
+                break;
+                case 2:
+                user2 = new Wolf();
+                break;
+                case 3:
+                user2 = new Spider();
+                break;
+                case 4:
+                user2 = new Vulture();
+                break;
+                case 5:
+                user2 = new Shark();
+                break;
+                case 6:
+                user2 = new Pufferfish();
+                break; 
+            }
+
+
 
         }
 
