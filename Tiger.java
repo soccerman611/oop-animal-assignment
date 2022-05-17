@@ -7,5 +7,9 @@ public class Tiger extends Normal {
     public int specialmove(){
         return 1;
     }
+
+    public String Species(){
+        return "Tiger";
+    }
     
 }

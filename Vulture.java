@@ -7,5 +7,9 @@ public class Vulture extends Flying {
     public int specialmove(){
         return 2;
     }
+
+    public String Species(){
+        return "Vulture";
+    }
     
 }

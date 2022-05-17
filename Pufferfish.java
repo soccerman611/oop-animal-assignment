@@ -7,5 +7,9 @@ public class Pufferfish extends Water {
     public int specialmove(){
         return 3;
     }
+
+    public String Species(){
+        return "Pufferfish";
+    }
     
 }
