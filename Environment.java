@@ -1,11 +1,15 @@
 public class Environment{
 
-    public int EnvID(){
+    public int TypeBoost(){
         return -1;
     }
 
-    public String Desc2(){
+    public String Desc(){
         return "A";
+    }
+
+    public String Name(){
+        return "Paid Guy";
     }
 
 

@@ -1,7 +1,9 @@
 /*
 Name: Steven Vezina
 Date: May 4th 2022
-Desc: animal competition yes
+Desc: choose 2 animals to face off against each other, or choose 1 animal and face off against a pre-chosen animal of an existing difficulty.
+you can choose attributes for your animal that give it a unique ability. an environment is randomly chosen to be used for the battle (but it is not fully implemented)
+i plan to have a point based battle system where your attacks give you points, and whichever animal has the most points after 3 turns wins
 */
 
 import java.util.*;
@@ -11,6 +13,7 @@ public class Main {
     static Animal user2 = new Animal();
     static String KnownAttribute;
     static String KnownAttribute2;
+    
 
 
     public static void main(String[] args) {
@@ -20,6 +23,7 @@ public class Main {
         int Inputisvalid = 0; // to make sure nobody makes the wrong input
         int freeplaycounter = 1; //for the freeplay mode
         int AttributeChoose = 0;
+
         
 
         while (Inputisvalid == 0){ //ask for what game mode the player wants
@@ -49,6 +53,9 @@ public class Main {
             for (int i = 0; i < 2; i++){ //do this twice for the user and the other user
                 while (Inputisvalid == 0){ //input user animal
                     Scanner sin = new Scanner(System.in);
+                    if (i == 1){
+                        System.out.println("Now choose the enemy's animal and attributes.");
+                    }
                     System.out.println("What animal do you want? 1 for Tiger, 2 for Wolf, 3 for Spider, 4 for Vulture, 5 for Shark, 6 for Pufferfish");
                     MainInput = sin.nextInt();
                     if (MainInput < 1 || MainInput > 6){
@@ -152,8 +159,19 @@ public class Main {
 
 
         int score = 0; //main battle score
+        int turn = 0;
+        int rounds = 3;
         int RandomEnv = 0; //choose a random environment
-        RandomEnv = (int)(Math.random()*3) + 1;
+        RandomEnv = (int)(Math.random()*1) + 1;
+        Environment Env = new Environment();
+        
+
+        if (RandomEnv == 1){
+            Env = new Desert();
+        }
+
+        
+        
 
 
         
@@ -171,6 +189,15 @@ public class Main {
 
         System.out.println("Welcome to the fight !");
         System.out.println("Today the " + user.Species() +  " and the " + user2.Species() + " fight!");
+        System.out.println("They will fight in the " + Env.Name() + " today.");
+        System.out.println(Env.Desc());
+
+        if (KnownAttribute == "ANOTHER CHANCE" || KnownAttribute2 == "ANOTHER CHANCE"){
+            rounds++;
+        }
+        System.out.println("You will have " + rounds + " rounds to fight the enemy. Good luck!");
+
+        
 
 
         
@@ -277,8 +304,18 @@ public class Main {
         }
 
     }
-    public static void Fight(int score, int MainInput, int Gamemode){ //method for fighting, left empty because i want to work on this tomorrow
-        return;
+    public static void Fight(int score, int MainInput, int Gamemode, int turn){ //method for fighting, left empty because i want to work on this tomorrow
+        
+        switch(MainInput){
+
+            case 1:
+            System.out.println("Attack");
+            case 2:
+            System.out.println("Defend");
+            case 3:
+            System.out.println("Special");
+            
+        }
     }
 
 }
