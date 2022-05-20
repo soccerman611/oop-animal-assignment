@@ -11,5 +11,9 @@ public class Tiger extends Normal {
     public String Species(){
         return "Tiger";
     }
+
+    public String type(){
+        return "NORMAL";
+    }
     
 }

@@ -1,6 +1,6 @@
 this is for reference
 
-1: Quick Thinking (moves first in the environment the animal benefits in)
+1: Head Start (using your attack in round 1 is more effective)
 2: Special Boost (your special move is more effective)
 3: Another Chance (one extra round per battle)
 4: Thorns (when you are attacked, the opponent loses a point)

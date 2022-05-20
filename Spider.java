@@ -11,5 +11,9 @@ public class Spider extends Flying {
     public String Species(){
         return "Spider";
     }
+
+    public String type(){
+        return "FLYING";
+    }
     
 }

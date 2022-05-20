@@ -11,5 +11,9 @@ public class Vulture extends Flying {
     public String Species(){
         return "Vulture";
     }
+
+    public String type(){
+        return "FLYING";
+    }
     
 }

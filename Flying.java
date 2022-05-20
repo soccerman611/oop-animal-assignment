@@ -6,6 +6,10 @@ public class Flying extends Animal {
         return -1;
     }
 
+    public String type(){
+        return "a";
+    }
+
     
     
 }

@@ -23,6 +23,8 @@ public class Main {
         int Inputisvalid = 0; // to make sure nobody makes the wrong input
         int freeplaycounter = 1; //for the freeplay mode
         int AttributeChoose = 0;
+        int SpecialCountUser1 = 1; //both of these variables track how many times you have used the special move
+        int SpecialCountUser2 = 1;
 
         
 
@@ -69,7 +71,7 @@ public class Main {
 
                 while (Inputisvalid == 0){ //input user attribute
                     Scanner sin = new Scanner(System.in);
-                    System.out.println("What attribute do you want? 0 for Quick Thinking, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
+                    System.out.println("What attribute do you want? 0 for Head Start, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
                     System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response");
                     AttributeChoose = sin.nextInt();
 
@@ -106,7 +108,7 @@ public class Main {
 
                 if (Inputisvalid == 1){ //input for user attribute
                     Scanner sin = new Scanner(System.in);
-                    System.out.println("What attribute do you want? 0 for Quick Thinking, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
+                    System.out.println("What attribute do you want? 0 for Head Start, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
                     System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response");
                     AttributeChoose = sin.nextInt();
 
@@ -159,15 +161,22 @@ public class Main {
 
 
         int score = 0; //main battle score
-        int turn = 0;
+        int turn = -1;
+        int userturns = 1;
         int rounds = 3;
         int RandomEnv = 0; //choose a random environment
-        RandomEnv = (int)(Math.random()*1) + 1;
+        RandomEnv = (int)(Math.random()*3) + 1;
         Environment Env = new Environment();
         
 
         if (RandomEnv == 1){
             Env = new Desert();
+        }
+        else if (RandomEnv == 2){
+            Env = new City();
+        }
+        else if (RandomEnv == 3){
+            Env = new Lake();
         }
 
         
@@ -182,10 +191,10 @@ public class Main {
         /*score = amongus.calculate();
         System.out.println(score);*/
 
-        System.out.println(user.Desc());
+        /*System.out.println(user.Desc());
         System.out.println(KnownAttribute);
         System.out.println(user2.Desc());
-        System.out.println(KnownAttribute2);
+        System.out.println(KnownAttribute2);*/
 
         System.out.println("Welcome to the fight !");
         System.out.println("Today the " + user.Species() +  " and the " + user2.Species() + " fight!");
@@ -195,7 +204,75 @@ public class Main {
         if (KnownAttribute == "ANOTHER CHANCE" || KnownAttribute2 == "ANOTHER CHANCE"){
             rounds++;
         }
+        if (KnownAttribute == "DOUBLE VISION"){
+            userturns = 2;
+        }
+        if (KnownAttribute2 == "DOUBLE VISION"){
+            turn = 1;
+        }
+        
+
+        
         System.out.println("You will have " + rounds + " rounds to fight the enemy. Good luck!");
+
+        // battle loop
+
+        for (int i = 0; i < rounds; i++){
+            //user turn
+            for (int l = userturns; l > 0; l--){
+
+                while (Inputisvalid == 0){
+                    Scanner sin = new Scanner(System.in);
+                    System.out.println("What do you want to do? 1 for Attack, 2 for Guard, 3 for Special (one per battle)");
+                    MainInput = sin.nextInt();
+                    if (MainInput > 3 || MainInput < 1){
+                        System.out.println("Yes");
+                        continue;
+                    }
+
+                    if (MainInput == 3 && SpecialCountUser1 == 0){
+                        System.out.println("No");
+                        continue;
+                    }
+
+                    if (MainInput == 3 && SpecialCountUser1 == 1){
+                        System.out.println("Ho ho ho!");
+                        SpecialCountUser1 = 0;
+                    }
+                    Inputisvalid++;
+                    
+                }
+                
+                
+                Inputisvalid = 0;
+
+            }
+            Fight(score, MainInput, Gamemode, turn, userturns);
+            MainInput = 0;
+            //enemy turn
+            for (int m = 0; m < turn; m++){
+                System.out.println("Do you love god?");
+
+                MainInput = (int)(Math.random()*3) + 1;
+                System.out.println("Enemy used " + MainInput);
+                if (MainInput == 3 && SpecialCountUser2 == 0){
+                    System.out.println("Ben?");
+                    continue;
+                }
+                if (MainInput == 3 && SpecialCountUser2 == 1){
+                    System.out.println("Yuck");
+                    SpecialCountUser2 = 0;
+                }
+                Fight(score, MainInput, Gamemode, turn, userturns);
+                
+
+
+            }
+            
+            
+
+
+        }
 
         
 
@@ -299,21 +376,22 @@ public class Main {
                 break; 
             }
 
-
-
         }
 
     }
-    public static void Fight(int score, int MainInput, int Gamemode, int turn){ //method for fighting, left empty because i want to work on this tomorrow
+    public static void Fight(int score, int MainInput, int Gamemode, int turn, int userturns){ //method for fighting, left empty because i want to work on this tomorrow
         
         switch(MainInput){
 
             case 1:
             System.out.println("Attack");
+            return;
             case 2:
             System.out.println("Defend");
+            return;
             case 3:
             System.out.println("Special");
+            return;
             
         }
     }

@@ -11,5 +11,9 @@ public class Shark extends Water {
     public String Species(){
         return "Shark";
     }
+
+    public String type(){
+        return "WATER";
+    }
     
 }

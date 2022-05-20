@@ -1,11 +1,15 @@
 public class City extends Environment{
 
-    public int EnvID(){
-        return 3;
+    public int TypeBoost(){
+        return 1;
+    }
+
+    public String Name(){
+        return "CITY";
     }
 
     public String Desc(){
-        return "The desert is a silent, scorching place as a battlefield. Normal type animals such as the Tiger and Wolf will flourish here";
+        return "The city is a cramped place with tons of buildings getting in the way. Flying animals like the spider and vulture will do well here.";
     }
 
     

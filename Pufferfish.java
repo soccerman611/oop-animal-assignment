@@ -11,5 +11,9 @@ public class Pufferfish extends Water {
     public String Species(){
         return "Pufferfish";
     }
+
+    public String type(){
+        return "WATER";
+    }
     
 }

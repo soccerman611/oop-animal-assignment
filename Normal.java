@@ -5,5 +5,9 @@ public class Normal extends Animal {
     public int specialmove(){
         return -1;
     }
+
+    public String type(){
+        return "a";
+    }
     
 }

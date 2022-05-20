@@ -1,7 +1,7 @@
 public class AttributeList {
 
     public String Attributes(int AttributeChoose){
-        String[] Atr = {"QUICK THINKING", "SPECIAL BOOST", "ANOTHER CHANCE", "THORNS", "ENVIRONMENT BOOST", "DOUBLE VISION", "TOUGH SPOT", "IRON ARMOR", "NEUTRAL RESPONSE"};
+        String[] Atr = {"HEAD START", "SPECIAL BOOST", "ANOTHER CHANCE", "THORNS", "ENVIRONMENT BOOST", "DOUBLE VISION", "TOUGH SPOT", "IRON ARMOR", "NEUTRAL RESPONSE"};
 
         switch(AttributeChoose){
 
