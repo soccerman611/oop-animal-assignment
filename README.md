@@ -37,7 +37,7 @@ Tiger
 Wolf
 
 ----------------------------------------
-Attributes: The main thing that makes your animal unique. You can choose from 1 of 9 attributes for your Animal. 
+Attributes: The main thing that makes your animal unique. You can choose from 1 of 8 attributes for your Animal. 
 In Normal Mode an attribute is preset for the animal you fight.
 
 List of attributes:
@@ -48,24 +48,25 @@ List of attributes:
 
 3: Another Chance (one extra round per battle) 
 
-4: Thorns (when you are attacked, the opponent loses a point)
 
-5: Environment Boost (your type is stronger in its ideal environment) 
+4: Environment Boost (your type is stronger in its ideal environment) 
 
-6: Double Vision (you get to move twice but start with a -2 point disadvantage) 
+5: Double Vision (you get to move twice but start with a -2 point disadvantage) 
 
-7: Tough Spot (your guard is more effective in a good environment) 
+6: Tough Spot (your guard is more effective in a good environment) 
 
-8: Iron Armor (you lose your normal attack but your guard is twice as effective)
+7: Iron Armor (you lose your normal attack but your guard is twice as effective)
 
-9: Neutral Response (you are unaffected by the environment, no advantage or disadvantage)
+8: Neutral Response (you are unaffected by the environment, no advantage or disadvantage)
 
 ----------------------------------------
 Environments: This is the battlefield where the two animals face off in. It can affect the moves of an animal and its points earned.
 There are 3 environments that give specific types an advantage.
 
 Desert: The desert is a silent, scorching place as a battlefield. Normal type animals such as the Tiger and Wolf will flourish here.
+
 City: The city is a cramped place with tons of buildings getting in the way. Flying animals like the spider and vulture will do well here.
+
 Lake: The lake is a wide open arena with fresh water to swim around in. Animals like the Shark and Pufferfish are swimming experts, so they will benefit here.
 
 -----------------------------------------
