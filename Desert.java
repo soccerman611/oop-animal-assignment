@@ -1,7 +1,7 @@
 public class Desert extends Environment{
 
-    public int TypeBoost(){
-        return 1;
+    public String TypeBoost(){
+        return "NORMAL";
     }
 
     public String Name(){

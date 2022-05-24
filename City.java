@@ -1,7 +1,7 @@
 public class City extends Environment{
 
-    public int TypeBoost(){
-        return 1;
+    public String TypeBoost(){
+        return "FLYING";
     }
 
     public String Name(){

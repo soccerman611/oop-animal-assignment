@@ -1,7 +1,7 @@
 public class Lake extends Environment{
 
-    public int TypeBoost(){
-        return 1;
+    public String TypeBoost(){
+        return "WATER";
     }
 
     public String Name(){
@@ -9,7 +9,7 @@ public class Lake extends Environment{
     }
 
     public String Desc(){
-        return "The lake is a wide open arena with fresh water to swim around in. Animals like the Shark and Pufferfish are swimming experts, so they will benefit here.";
+        return "The lake is a open arena with fresh water to swim around in. Animals like the Shark and Pufferfish will benefit here";
     }
 
     

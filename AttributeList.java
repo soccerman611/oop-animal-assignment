@@ -1,11 +1,10 @@
 public class AttributeList {
 
     public String Attributes(int AttributeChoose){
-        String[] Atr = {"HEAD START", "SPECIAL BOOST", "ANOTHER CHANCE", "THORNS", "ENVIRONMENT BOOST", "DOUBLE VISION", "TOUGH SPOT", "IRON ARMOR", "NEUTRAL RESPONSE"};
+        String[] Atr = {"DUMMY", "HEAD START", "SPECIAL BOOST", "ANOTHER CHANCE", "ENVIRONMENT BOOST", "DOUBLE VISION", "TOUGH SPOT", "IRON ARMOR", "NEUTRAL RESPONSE"};
 
         switch(AttributeChoose){
 
-            case 0: return Atr[AttributeChoose];
             case 1: return Atr[AttributeChoose];
             case 2: return Atr[AttributeChoose];
             case 3: return Atr[AttributeChoose];

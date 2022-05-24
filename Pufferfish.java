@@ -1,12 +1,7 @@
-public class Pufferfish extends Water {
+public class Pufferfish extends Animal {
 
-    public String Desc(){
-        return "Pufferfish eat carrot";
-    }
 
-    public int specialmove(){
-        return 3;
-    }
+
 
     public String Species(){
         return "Pufferfish";

@@ -1,34 +1,38 @@
 /*
+OOP Animal Competition
+
 Name: Steven Vezina
-Date: May 23rd 2022
+Date: May 24th 2022
 Desc: choose 2 animals to face off against each other, or choose 1 animal and face off against a pre-chosen animal of an existing difficulty.
-you can choose attributes for your animal that give it a unique ability. an environment is randomly chosen to be used for the battle (but it is not fully implemented)
-i plan to have a point based battle system where your attacks give you points, and whichever animal has the most points after 3 turns wins
+
+Check the README file for more information about the program!
 */
 
 import java.util.*;
 
 public class Main {
-    static Animal user = new Animal(); //these variables are static so i can access them from anywhere in Main
-    static Animal user2 = new Animal();
-    static String KnownAttribute;
-    static Environment Env = new Environment();
-    static String KnownAttribute2;
-    static int GuardCheck = 0;
-    static int CurrentRound;
-    static int rounds = 3;
-    static int tempscore = 0;
-    static int UserorEnemy = 1;
+    /*Static Variables
+    These variables are static so I can use them anywhere and have them stay the same, even in methods in Main
+    */
+    static Animal user = new Animal(); //User's animal object
+    static Animal user2 = new Animal(); //Enemy animal object
+    static String KnownAttribute; //Used in AttributesMethod to convert the input into a String from an Array
+    static Environment Env = new Environment(); //Environment object
+    static String KnownAttribute2; //Same as KnownAttribute, but for the enemy
+    static int GuardCheck = 0; //used in the Fight method to check if anyone has guarded in the previous turn
+    static int rounds = 5; //Default amount of rounds for battles
+    static int tempscore = 0; //This value is added to either the user or enemy score after going to the Fight method
+    static int UserorEnemy = 1; //checks if it is the user turn or enemy turn, to know which method to go to in iTurnModifier
     
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //main method
         int MainInput = 0; //Input will be asked from the player a lot during this
-        int Gamemode = 0; //1 is main mode, 3 is freeplay
+        int Gamemode = 0; //1 is main mode, 2 is freeplay
         int DifficultySelect = 0; //1 is easy, 2 is normal, 3 is hard
         int Inputisvalid = 0; // to make sure nobody makes the wrong input
         int freeplaycounter = 1; //for the freeplay mode
-        int AttributeChoose = 0;
+        int AttributeChoose = 0; //Input for Attributes, will be converted into a String in Attributes method
         int SpecialCountUser1 = 1; //both of these variables track how many times you have used the special move
         int SpecialCountUser2 = 1;
 
@@ -39,50 +43,50 @@ public class Main {
             System.out.println("Do you want Main Mode or Freeplay Mode? 1 for Main Mode, 2 for Freeplay mode");
             MainInput = sin.nextInt();
 
-            if (MainInput < 1 || MainInput > 2){
+            if (MainInput < 1 || MainInput > 2){ //failsafe
                 System.out.println("Invalid input!");
                 continue;
             }
             Inputisvalid++;
 
             if (MainInput == 1){
-                Gamemode = 1;
+                Gamemode = 1; //main
             }
             else {
-                Gamemode = 2;
+                Gamemode = 2; //freeplay
             }
 
         }
         Inputisvalid = 0;
-        MainInput = 0;
+        MainInput = 0; //reset these values for later
 
         if (Gamemode == 2){ //freeplay animal select
 
-            for (int i = 0; i < 2; i++){ //do this twice for the user and the other user
+            for (int i = 0; i < 2; i++){ //do this twice for the user and the enemy
                 while (Inputisvalid == 0){ //input user animal
                     Scanner sin = new Scanner(System.in);
-                    if (i == 1){
+                    if (i == 1){ //do this if it's the second time around in the loop
                         System.out.println("Now choose the enemy's animal and attributes.");
                     }
                     System.out.println("What animal do you want? 1 for Tiger, 2 for Wolf, 3 for Spider, 4 for Vulture, 5 for Shark, 6 for Pufferfish");
                     MainInput = sin.nextInt();
-                    if (MainInput < 1 || MainInput > 6){
-                        System.out.println("idiot");
+                    if (MainInput < 1 || MainInput > 6){ //failsafe
+                        System.out.println("Invalid input!");
                         continue;
                     }
                     Inputisvalid++;
 
                 }
-                Inputisvalid = 0;
+                Inputisvalid = 0; //reset this for attribute choosing
 
                 while (Inputisvalid == 0){ //input user attribute
                     Scanner sin = new Scanner(System.in);
-                    System.out.println("What attribute do you want? 0 for Head Start, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
-                    System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response");
+                    System.out.println("What attribute do you want? 1 for Head Start, 2 for Special Boost, 3 for Another Chance, 4 for Environment Boost");
+                    System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response"); //split this up for readability
                     AttributeChoose = sin.nextInt();
 
-                    if (AttributeChoose < 0 || AttributeChoose > 8){
-                        System.out.println("why");
+                    if (AttributeChoose < 1 || AttributeChoose > 8){ //failsafe
+                        System.out.println("Invalid input!");
                         continue;
                     }
                     Inputisvalid++;
@@ -114,11 +118,11 @@ public class Main {
 
                 if (Inputisvalid == 1){ //input for user attribute
                     Scanner sin = new Scanner(System.in);
-                    System.out.println("What attribute do you want? 0 for Head Start, 1 for Special Boost, 2 for Another Chance, 3 for Thorns, 4 for Environment Boost");
+                    System.out.println("What attribute do you want? 1 for Head Start, 2 for Special Boost, 3 for Another Chance, 4 for Environment Boost");
                     System.out.println("5 for Double Vision, 6 for Tough Spot, 7 for Iron Armor, 8 for Neutral Response");
                     AttributeChoose = sin.nextInt();
 
-                    if (AttributeChoose < 0 || AttributeChoose > 8){
+                    if (AttributeChoose < 1 || AttributeChoose > 8){
                         System.out.println("Why");
                         continue;
                     }
@@ -147,15 +151,15 @@ public class Main {
             AttributeList javamoment2 = new AttributeList(); //java moment
 
             switch (DifficultySelect){ //switch statement, set up the enemy you face depending on the difficulty
-                case 1:
+                case 1: //Pufferfish with Iron Armor
                 user2 = new Pufferfish();
-                EnemyAttribute = 8;
+                EnemyAttribute = 7;
                 break;
-                case 2:
+                case 2: //Vulture with Environment Boost
                 user2 = new Vulture();
                 EnemyAttribute = 4;
                 break;
-                case 3:
+                case 3: //Tiger with Special Boost
                 user2 = new Tiger();
                 EnemyAttribute = 2;
                 break;
@@ -168,15 +172,16 @@ public class Main {
 
         int score = 0; //Your score
         int enemyscore = 0; //Enemy's score
-        int turn = -1; 
-        int userturns = 1;
+        int turn = -1; //enemy turn count is 1, used in for loop
+        int userturns = 1; //same idea as turn
         
         
         int RandomEnv = 0; //choose a random environment
         RandomEnv = (int)(Math.random()*3) + 1;
         
+        
 
-        if (RandomEnv == 1){
+        if (RandomEnv == 1){ //set environment appropiately depending on randomizer
             Env = new Desert();
         }
         else if (RandomEnv == 2){
@@ -186,39 +191,30 @@ public class Main {
             Env = new Lake();
         }
 
-        
-        
-
-
-        
-
-        
-
-       
-        /*score = amongus.calculate();
-        System.out.println(score);*/
-
-        /*System.out.println(user.Desc());
-        System.out.println(KnownAttribute);
-        System.out.println(user2.Desc());
-        System.out.println(KnownAttribute2);*/
-
+        //ENEMY INTRODUCTION CODE
         System.out.println("Welcome to the fight !");
         System.out.println("Today the " + user.Species() +  " and the " + user2.Species() + " fight!");
+        System.out.println("Your attribute is " + KnownAttribute + ". The enemy's attribute is " + KnownAttribute2);
         System.out.println("They will fight in the " + Env.Name() + " today.");
         System.out.println(Env.Desc());
 
         // Make changes to the turn system depending on an animal's attribute.
 
+        //Another Chance: Increase round count to 6
         if (KnownAttribute == "ANOTHER CHANCE" || KnownAttribute2 == "ANOTHER CHANCE"){
             rounds++;
         }
+        //Double vision: Increase turn count to 2 and give score penalty
         if (KnownAttribute == "DOUBLE VISION"){
             userturns = 2;
+            score = -5;
         }
         if (KnownAttribute2 == "DOUBLE VISION"){
             turn = -2;
+            enemyscore = -5;
         }
+
+        
         
 
         
@@ -226,36 +222,36 @@ public class Main {
 
         // battle loop
 
-        for (int i = 0; i < rounds; i++){ //do this loop for 3 or 4 rounds, depends on attributes
+        for (int i = 0; i < rounds; i++){ //do this loop for 5 or 6 rounds, depends on attributes
             //user turn
-            UserorEnemy = 1;
+            UserorEnemy = 1; //1 means user turn
             for (int l = userturns; l > 0; l--){ //loops how many times the user can do an action before moving to enemy turn
 
                 
 
                 while (Inputisvalid == 0){
-                    Scanner sin = new Scanner(System.in);
+                    Scanner sin = new Scanner(System.in); //ask for input for an attack
                     System.out.println("What do you want to do? 1 for Attack, 2 for Guard, 3 for Special (one per battle)");
                     MainInput = sin.nextInt();
-                    if (MainInput > 3 || MainInput < 1){ //failsafe for idiots
+                    if (MainInput > 3 || MainInput < 1){ //failsafe for invalid input
                         System.out.println("Invalid input!");
                         continue;
                     }
 
-                    if (MainInput == 1 && KnownAttribute == "IRON ARMOR"){ //check for Iron Armor attribute
+                    if (MainInput == 1 && KnownAttribute == "IRON ARMOR"){ //failsafe check for Iron Armor attribute
                         System.out.println("You cannot attack with the IRON ARMOR Attribute!");
                         continue;
                     }
 
                     if (MainInput == 3 && SpecialCountUser1 == 0){ //prevents a second special move from being used
-                        System.out.println("No");
+                        System.out.println("You have used up all your special moves!");
                         continue;
                     }
 
                     
 
                     if (MainInput == 3 && SpecialCountUser1 == 1){ //special move detector
-                        System.out.println("Ho ho ho!");
+                        System.out.println("Used up your special move!");
                         SpecialCountUser1 = 0;
                     }
                     Inputisvalid++;
@@ -267,14 +263,13 @@ public class Main {
 
             }
             tempscore = Fight(tempscore, MainInput, Gamemode, turn, userturns); //jump to fight method in main
-            score = score + tempscore; //java is weird. tempscore is used just so it can be added to the main score
-            System.out.println("You used " + MainInput + " for " + tempscore + " points.");
-            MainInput = 0; //reset this for enemy turn
-            tempscore = 0;
+            score = score + tempscore; //tempscore's result is added to main score
+            MainInput = 0; //reset these for enemy turn
+            tempscore = 0; 
             //enemy turn
-            UserorEnemy = 0;
+            UserorEnemy = 0; //0 means enemy turn
             for (int m = 0; m > turn; m--){ //loops how many times the enemy can do an action before moving to user turn
-                System.out.println("Do you love god?");
+                
 
                 while (Inputisvalid == 0){ //If enemy randomly chooses an invalid option, do not skip its turn and retry until it is valid.
 
@@ -282,28 +277,23 @@ public class Main {
                     
 
                     if (MainInput == 3 && SpecialCountUser2 == 0){
-                        System.out.println("Enemy has used up all of its SPECIAL moves! Redoing turn..");
                         continue;
                     }
 
                     if (MainInput == 1 && KnownAttribute2 == "IRON ARMOR"){
-                        System.out.println("Enemy cannot ATTACK with IRON ARMOR attribute!");
                         continue;
                     }
 
                     if (MainInput == 3 && SpecialCountUser2 == 1){
-                        System.out.println("Special use");
                         SpecialCountUser2 = 0;
                     }
-                    System.out.println("Enemy should have " + tempscore + " temp points.");
                     tempscore = Fight(tempscore, MainInput, Gamemode, turn, userturns); //jump to fight method
-                    enemyscore = enemyscore + tempscore; //again java is weird
-                    System.out.println("Enemy used " + MainInput + " for " + tempscore + " points.");
+                    enemyscore = enemyscore + tempscore; //add result of tempscore to enemyscore
 
                     Inputisvalid = 1;
 
                 }
-                Inputisvalid = 0;
+                Inputisvalid = 0; //reset this
 
 
             }
@@ -327,12 +317,11 @@ public class Main {
         
     }
 
-    //Animal user, Animal user2
 
-    public static void ChooseAnAnimal(int MainInput, int freeplaycounter, int AttributeChoose, int Gamemode){ //ok future me remember that java is funny and putting var in wrong order breaks stuff
+    public static void ChooseAnAnimal(int MainInput, int freeplaycounter, int AttributeChoose, int Gamemode){ //Choose an animal method
 
         if (Gamemode == 1){ //no freeplay
-            AttributeList javamoment = new AttributeList();
+            AttributeList javamoment = new AttributeList(); //Make an object of the Attributelist to make it work for some reason
             KnownAttribute = javamoment.Attributes(AttributeChoose); //set the attribute by jumping to the method in AttributeList.java
 
             switch (MainInput){ //set up user animal depending on what you inputted in maininput
@@ -359,11 +348,11 @@ public class Main {
             return; //exit the method before anything weird happens
         }
 
-        //**everything past here is related to freeplay mode**//
+        //everything past here is related to freeplay mode
 
 
         if (freeplaycounter == 1){ //set user's animal
-            AttributeList javamoment = new AttributeList();
+            AttributeList javamoment = new AttributeList(); //again, make an object of attributelist to make it work
             KnownAttribute = javamoment.Attributes(AttributeChoose);
 
             switch(MainInput){
@@ -392,7 +381,7 @@ public class Main {
 
 
         }
-        if (freeplaycounter > 1){
+        if (freeplaycounter > 1){ //set enemy animal and attributes
             AttributeList javamoment2 = new AttributeList();
             KnownAttribute2 = javamoment2.Attributes(AttributeChoose);
 
@@ -423,68 +412,82 @@ public class Main {
     }
     public static int Fight(int tempscore, int MainInput, int Gamemode, int turn, int userturns){
 
-        /* Fight is just a good hub to jump to methods in different classes */
+        // Fight handles every valid move and is used as a hub to jump to the calculate method in iTurnModifier
 
-        iTurnModifier calc = new iTurnModifier(); //Java is awesome don't you agree?
-        int Balls = 0;
+        TurnModifier calc = new TurnModifier(); //Jumping to the method in another class doesn't work unless I make an object of the class.
+        int AttackCalc = 0; //variables AttackCalc and GuardCalc made just for the calculate methods
+        int GuardCalc = 0;
         
         
         switch(MainInput){
 
+            /*---------------------ATTACKING---------------------------*/
+
             case 1: //For attacks
 
-            if (UserorEnemy == 1){
-                System.out.println("User is going here to attack!");
-                Balls = calc.calculatetestUser(tempscore, MainInput, rounds, KnownAttribute, Env);
+            if (UserorEnemy == 1){ //if user attacking, go to this method
+                System.out.println("You attacked the enemy animal!");
+                AttackCalc = calc.calculateUser(MainInput, rounds, KnownAttribute, Env, user); //jump to this method in iTurnModifier
             }
-            else if (UserorEnemy == 0) {
-                System.out.println("The enemy is going to the enemy calculate test.");
-                Balls = calc.calculatetest(tempscore, MainInput, rounds, KnownAttribute2, Env);
+            else if (UserorEnemy == 0) { //if enemy attacking, go to this method
+                System.out.println("The enemy attacked! "); 
+                AttackCalc = calc.calculateEnemy(MainInput, rounds, KnownAttribute2, Env, user2); //jump to this method in iTurnModifier
             }
 
-            if (GuardCheck > 0){
-                /*tempscore = calc.Guardcheck(tempscore, GuardCheck);*/
-                Balls = Balls - GuardCheck;
-                GuardCheck = 0;
-                System.out.println("Guard detected!");
+            if (GuardCheck > 0){ //if guardcheck is still above 0 from a previous turn
+                AttackCalc = AttackCalc - GuardCheck; //reduce damage
+                System.out.println("Guard detected! " + GuardCheck + " points of damage nullified!");
+                GuardCheck = 0; //reset this
             }
-            System.out.println("There are " + Balls + "points before returning the value.");
-            return Balls;
+            System.out.println(AttackCalc + " points of damage dealt!");
+            return AttackCalc; //return the result of the calculations back to Fight method
+
+            /* ------------------GUARDING-------------------------*/
 
             case 2:
-            GuardCheck = 1;
-            if (KnownAttribute == "IRON ARMOR" || KnownAttribute2 == "IRON ARMOR"){ //Check for IRON ARMOR Attribute
-                GuardCheck = 2;
+            GuardCheck = 0; //reset this at start
+            if (UserorEnemy == 1){ //If User, jump to a different method
+                System.out.println("You guarded!");
+                GuardCalc = calc.calculateUser(MainInput, rounds, KnownAttribute, Env, user2); //go to same method
+                GuardCheck = GuardCheck + GuardCalc; //add result of GuardCalc to GuardCheck
             }
-            Balls = 0;
-            return Balls;
+            else if (UserorEnemy == 0) {//If Enemy, jump to a different method
+                System.out.println("The enemy guarded!");
+                GuardCalc = calc.calculateEnemy(MainInput, rounds, KnownAttribute2, Env, user2); //go to same method
+                GuardCheck = GuardCheck + GuardCalc;
+            }
+
+            AttackCalc = 0; //You didn't attack, so have no damage dealt and return it
+            return AttackCalc;
+
+            /*---------------------------SPECIAL MOVE------------------------------*/
 
             case 3:
 
-            if (UserorEnemy == 1){
-                System.out.println("User is going here..!");
-                Balls = calc.calculatetestUser(tempscore, MainInput, rounds, KnownAttribute, Env);
+            if (UserorEnemy == 1){ //if user, go to this method
+                System.out.println("User used a special attack!");
+                AttackCalc = calc.calculateUser(MainInput, rounds, KnownAttribute, Env, user2);
             }
-            else if (UserorEnemy == 0) {
-                System.out.println("The enemy is going to the enemy calculate test.");
-                Balls = calc.calculatetest(tempscore, MainInput, rounds, KnownAttribute2, Env);
+            else if (UserorEnemy == 0) { //if enemy go to this method
+                System.out.println("The enemy used a special attack!");
+                AttackCalc = calc.calculateEnemy(MainInput, rounds, KnownAttribute2, Env, user2);
             }
 
             if (GuardCheck > 0){ //check if whoever in previous turn used guard
                 System.out.println("Guard detected!");
-                /*tempscore = calc.Guardcheck(tempscore, GuardCheck);*/
-                Balls = Balls - GuardCheck;
+                AttackCalc = AttackCalc - GuardCheck;
+                System.out.println(GuardCheck + " points of damage nullified!");
                 GuardCheck = 0; //reset guard check
             }
 
-            System.out.println("There are " + Balls + "points before returning the value.");
+            System.out.println(AttackCalc + " points of damage dealt!");
 
             
-            return Balls;
+            return AttackCalc;
             
 
         }
-        return 0;
+        return 0; //default return is 0 if something weird happens
     }
 
 }

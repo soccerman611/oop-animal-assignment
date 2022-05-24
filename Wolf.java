@@ -1,12 +1,8 @@
-public class Wolf extends Normal {
+public class Wolf extends Animal {
 
-    public String Desc(){
-        return "howl";
-    }
 
-    public int specialmove(){
-        return 1;
-    }
+
+
 
     public String Species(){
         return "Wolf";

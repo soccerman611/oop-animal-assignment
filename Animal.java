@@ -1,8 +1,6 @@
-public class Animal extends iTurnModifier{
+public class Animal extends TurnModifier{
 
-    public String Desc(){
-        return "Description";
-    }
+
 
     public String Species(){
         return "Name";

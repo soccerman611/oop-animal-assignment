@@ -1,11 +1,11 @@
 this is for reference
 
-1: Head Start (using your attack in round 1 is more effective) IMPLEMENTED
-2: Special Boost (your special move is more effective) NOT IMPLEMENTED
-3: Another Chance (one extra round per battle) IMPLEMENTED
-4: Thorns (when you are attacked, the opponent loses a point) NOT IMPLEMENTED
-5: Environment Boost (your type is stronger in its ideal environment) NOT IMPLEMENTED
-6: Double Vision (you get to move twice but start with a -2 point disadvantage) NOT IMPLEMENTED YET
-7: Tough Spot (your guard is more effective in a good environment) NOT IMPLEMENTED
-8: Iron Armor (you lose your normal attack but your guard is twice as effective) IMPLEMENTED
-9: Neutral Response (you are unaffected by the environment, no advantage or disadvantage) NOT IMPLEMENTED
+1: Head Start (using your attack in round 1 is more effective) IMPLEMENTED IN ITURNMODIFIER
+2: Special Boost (your special move is more effective) IMPLEMENTED IN ITURNMODIFIER
+3: Another Chance (one extra round per battle) IMPLEMENTED IN MAIN
+4: DUMMY
+4: Environment Boost (your type is stronger in its ideal environment) IMPLEMENTED
+5: Double Vision (you get to move twice but start with a -2 point disadvantage) IMPLEMENTED
+6: Tough Spot (your guard is more effective in a bad environment) IMPLEMENTED
+7: Iron Armor (you lose your normal attack but your guard is twice as effective) IMPLEMENTED
+8: Neutral Response (you are unaffected by the environment) IMPLEMENTED

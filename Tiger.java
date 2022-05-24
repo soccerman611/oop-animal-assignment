@@ -1,12 +1,8 @@
-public class Tiger extends Normal {
+public class Tiger extends Animal {
 
-    public String Desc(){
-        return "eye of the tiger";
-    }
 
-    public int specialmove(){
-        return 1;
-    }
+
+
 
     public String Species(){
         return "Tiger";

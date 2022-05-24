@@ -1,7 +1,7 @@
 public class Environment{
 
-    public int TypeBoost(){
-        return -1;
+    public String TypeBoost(){
+        return "A";
     }
 
     public String Desc(){
