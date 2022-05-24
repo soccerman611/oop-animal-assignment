@@ -43,13 +43,21 @@ In Normal Mode an attribute is preset for the animal you fight.
 List of attributes:
 
 1: Head Start (using your attack in round 1 is more effective) 
+
 2: Special Boost (your special move is more effective) 
+
 3: Another Chance (one extra round per battle) 
+
 4: Thorns (when you are attacked, the opponent loses a point)
+
 5: Environment Boost (your type is stronger in its ideal environment) 
+
 6: Double Vision (you get to move twice but start with a -2 point disadvantage) 
+
 7: Tough Spot (your guard is more effective in a good environment) 
+
 8: Iron Armor (you lose your normal attack but your guard is twice as effective)
+
 9: Neutral Response (you are unaffected by the environment, no advantage or disadvantage)
 
 ----------------------------------------
