@@ -9,7 +9,7 @@ public class Environment{
     }
 
     public String Name(){
-        return "Paid Guy";
+        return "A";
     }
 
 

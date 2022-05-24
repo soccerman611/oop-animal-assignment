@@ -17,7 +17,7 @@ public class AttributeList {
  
         }
 
-        return "aaaaaa";
+        return "A";
   
     }
 
@@ -37,14 +37,12 @@ public class AttributeList {
             case 8: return Atr[EnemyAttribute];
 
         }
-        return "Saul";
+        return "A";
     }
 
     
 
-    public int Test(){
-        return 1;
-    }
+
 
     
 
