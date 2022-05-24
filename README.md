@@ -19,6 +19,8 @@ Easy: Fight a Pufferfish with Iron Armor attribute
 Normal: Fight a Vulture with Environment Boost
 
 Hard: Fight a Tiger with Special Boost
+
+
 ----------------------------------
 Animal: There are 6 animals you can choose from to use or fight against. There are 3 types, with each type representing 2 animals.
 
@@ -47,8 +49,9 @@ List of attributes:
 5: Environment Boost (your type is stronger in its ideal environment) 
 6: Double Vision (you get to move twice but start with a -2 point disadvantage) 
 7: Tough Spot (your guard is more effective in a good environment) 
-8: Iron Armor (you lose your normal attack but your guard is twice as effective) 
-9: Neutral Response (you are unaffected by the environment, no advantage or disadvantage) 
+8: Iron Armor (you lose your normal attack but your guard is twice as effective)
+9: Neutral Response (you are unaffected by the environment, no advantage or disadvantage)
+
 ----------------------------------------
 Environments: This is the battlefield where the two animals face off in. It can affect the moves of an animal and its points earned.
 There are 3 environments that give specific types an advantage.
@@ -62,7 +65,7 @@ Battle System
 
 Battles use a point system. Depending on an animal's actions, they can earn or lose points.
 The player and the enemy take turns selecting move which influences the points. After they both use their turn, a round passes.
-There are 4 (5 if an animal has Another Chance attribute) rounds in total. At the end of the 3 rounds, the animal with the most points wins.
+There are 5 (6 if an animal has Another Chance attribute) rounds in total. At the end of the 3 rounds, the animal with the most points wins.
 
 By default an animal has 3 possible actions:
 
